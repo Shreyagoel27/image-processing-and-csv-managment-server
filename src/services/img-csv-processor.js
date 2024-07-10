@@ -16,7 +16,7 @@ export const imageProcess = async (product) => {
 
   try {
     const response = await axios({
-      url: product?.inputImageUrls,
+      url: product.inputImageUrls,
       responseType: "arraybuffer",
     });
 
