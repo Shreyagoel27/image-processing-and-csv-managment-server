@@ -12,7 +12,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/user", userRoute);
-
+app.route("/").get((req, res) => {
+  res.send("Welcome to user management system");
+});
 const PORT = config.PORT || 3000;
 
 app.listen(PORT, () => {
