@@ -55,6 +55,7 @@ npm start
 1. Find the `Image Processing and CSV Management API.postman_collection` file in the repository.
 2. Import this file into postman.
 3. You will found the full API documentation in this collection
+4. LocalServerURI="http://localhost:3000/use/{end-points}"
 
 
 
