@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "94f5a51d-9b9c-463d-ba04-3398c38778ec",
+		"name": "Image Processing and CSV Management API",
+		"description": "This project is a backend service built with Node.js and Express.js, aimed at processing image URLs provided through a CSV file. The system handles file uploads, processes images using the Sharp library, and stores the results in a MongoDB database. Additionally, it supports querying the status of the processing task and exporting the results to a CSV file",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25117809"
+	},
+	"item": [
+		{
+			"name": "Upload-CSV-File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{LocalServerURI}}/upload-csv",
+					"host": [
+						"{{LocalServerURI}}"
+					],
+					"path": [
+						"upload-csv"
+					]
+				},
+				"description": "### Upload CSV File\n\n**Endpoint:** `POST /user/upload`\n\n**Description:** Uploads a CSV file containing image URLs for processing.\n\n**Headers:**\n\n- `Content-Type: multipart/form-data`\n    \n\n**Body:**\n\n- `file` (form-data): The CSV file to be uploaded.\n    \n\n**Responses:**\n\n**200 OK**\n\n``` json\n{\n    \"message\": \"File uploaded successfully.\",\n    \"userId\": \"userId\"\n  }\n\n ```\n\n**400 Bad Request**\n\n``` json\n{\n  \"message\": \"Invalid user ID.\"\n}\n\n ```\n\n  \n\n``` json\n{\n  \"message\": \"Uploaded file is not a CSV.\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get-File-Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{LocalServerURL}}/status",
+					"host": [
+						"{{LocalServerURL}}"
+					],
+					"path": [
+						"status"
+					]
+				},
+				"description": "### Check User Status\n\n**Endpoint:** `GET /user/status`\n\n**Description:** Checks the status of the user's image processing task.\n\n**Query Parameters:**\n\n- `id` (string, required): The ID of the user.\n    \n\n**Responses:**\n\n**200 OK**\n\n``` json\n{\n    \"status\": \"Processing\" or \"Processed\",\n    \"message\": \"Number of images still processing or Processed successfully\"\n  }\n\n ```\n\n**400 Bad Request**\n\n``` json\n{\n  \"message\": \"Invalid user ID.\"\n}\n\n\n ```"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "LocalServerURL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
